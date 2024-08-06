@@ -21,7 +21,7 @@ nohup split-pipe \
 --fasta $path2data/genomes/Mus_musculus.GRCm39.dna.primary_assembly.fa \
 --genes $path2data/genomes/Mus_musculus.GRCm39.112.gtf.gz \
 --output_dir $path2data/genomes/GRCm39 &
-#[2] 2467637
+[5] 2469124
 
 nohup split-pipe \
 --mode mkref \
