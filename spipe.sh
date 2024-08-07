@@ -42,20 +42,21 @@ nohup split-pipe \
 --genes $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.112.gtf \
 --output_dir $path2data/genomes/MacFas6 &
 
-# #downloading new primate genome assemblies from Telomere-to-Telomere Consortium (TTC)
+#downloading new primate genome assemblies from Telomere-to-Telomere Consortium (TTC)
 # nohup split-pipe \
 # --mode mkref \
 # --genome_name PanTro3TTC\
-# --fasta $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.fa.gz \
-# --genes $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.gtf.gz  \
+# --fasta $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.fa \
+# --genes $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.gtf  \
 # --output_dir $path2data/genomes/PanTro3TTC &
+#Problem: Genome name 2, gtf 1, fasta 0 numbers must match 
 
 # #downloading new primate genome assemblies from Telomere-to-Telomere Consortium
 # nohup split-pipe \
 # --mode mkref \
 # --genome_name GorGor1_TTC\
-# --fasta $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.fna.gz \
-# --genes $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf.gz   \
+# --fasta $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.fa \
+# --genes $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf \
 # --output_dir $path2data/genomes/GorGor1_TTC &
 
 #making mixed reference genome (ENSEMBLE based)
