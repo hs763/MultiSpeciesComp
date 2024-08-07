@@ -61,7 +61,7 @@ nohup split-pipe \
 #making mixed reference genome (ENSEMBLE based)
 nohup split-pipe \
 --mode mkref \
---genome_name GRCh38 PanTro3 GorGor4 MacFas6 GRCm39\
+--genome_name GRCh38 PanTro3 GorGor4 MacFas6 GRCm39 \
 --fasta $path2data/genomes/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz $path2data/genomes/Pan_troglodytes.Pan_tro_3.0.dna.toplevel.fa $path2data/genomes/Gorilla_gorilla.gorGor4.dna.toplevel.fa $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.dna.toplevel.fa $path2data/genomes/Mus_musculus.GRCm39.dna.primary_assembly.fa \
 --genes $path2data/genomes/Homo_sapiens.GRCh38.112.gtf.gz $path2data/genomes/Pan_troglodytes.Pan_tro_3.0.112.gtf  $path2data/genomes/Gorilla_gorilla.gorGor4.112.gtf $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.112.gtf  $path2data/genomes/Mus_musculus.GRCm39.112.gtf \
 --output_dir $path2data/genomes/ensemble_mixed_ref &
