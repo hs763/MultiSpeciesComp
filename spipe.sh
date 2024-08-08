@@ -43,21 +43,21 @@ nohup split-pipe \
 --output_dir $path2data/genomes/MacFas6 &
 
 #downloading new primate genome assemblies from Telomere-to-Telomere Consortium (TTC)
-# nohup split-pipe \
-# --mode mkref \
-# --genome_name PanTro3TTC\
-# --fasta $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.fa \
-# --genes $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.gtf  \
-# --output_dir $path2data/genomes/PanTro3TTC &
+nohup split-pipe \
+--mode mkref \
+--genome_name PanTro3_TCC \
+--fasta $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.fa \
+--genes $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.gtf  \
+--output_dir $path2data/genomes/PanTro3_TTC &
 #Problem: Genome name 2, gtf 1, fasta 0 numbers must match 
 
 # #downloading new primate genome assemblies from Telomere-to-Telomere Consortium
-# nohup split-pipe \
-# --mode mkref \
-# --genome_name GorGor1_TTC\
-# --fasta $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.fa \
-# --genes $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf \
-# --output_dir $path2data/genomes/GorGor1_TTC &
+nohup split-pipe \
+--mode mkref \
+--genome_name GorGor1_TTC \
+--fasta $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.fa \
+--genes $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf \
+--output_dir $path2data/genomes/GorGor1_TTC &
 
 #making mixed reference genome (ENSEMBLE based)
 nohup split-pipe \
@@ -68,12 +68,12 @@ nohup split-pipe \
 --output_dir $path2data/genomes/ensemble_mixed_ref &
 
 # #making mixed reference genome (including TTC)
-# nohup split-pipe \
-# --mode mkref \
-# --genome_name GRCh38 PanTro3_TTC GorGor1_TTC MacFas6 GRCm39\
-# --fasta $path2data/genomes/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.fna.gz $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.fna.gz $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.dna.toplevel.fa $path2data/genomes/Mus_musculus.GRCm39.dna.primary_assembly.fa \
-# --genes $path2data/genomes/Homo_sapiens.GRCh38.112.gtf.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.gtf.gz $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf.gz $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.112.gtf  $path2data/genomes/Mus_musculus.GRCm39.112.gtf.gz \
-# --output_dir $path2data/genomes/ensemble_ttc_mixed_ref &
+nohup split-pipe \
+--mode mkref \
+--genome_name GRCh38 PanTro3_TTC GorGor1_TTC MacFas6 GRCm39 \
+--fasta $path2data/genomes/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.fna.gz $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.fna.gz $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.dna.toplevel.fa $path2data/genomes/Mus_musculus.GRCm39.dna.primary_assembly.fa \
+--genes $path2data/genomes/Homo_sapiens.GRCh38.112.gtf.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.gtf.gz $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf.gz $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.112.gtf  $path2data/genomes/Mus_musculus.GRCm39.112.gtf.gz \
+--output_dir $path2data/genomes/ensemble_ttc_mixed_ref &
 
 split-pipe --mode all --kit WT_mega --chemistry v2 --genome_dir $path2data/genomes/ensemble_mixed_ref/ \
 --fq1 $path2data/expdata/Round1_fastqc_kim/Hania_1_S100_R1_001.fastq.gz \
