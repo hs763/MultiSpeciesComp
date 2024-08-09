@@ -2,6 +2,7 @@
 #Files stored: /data2/hanna/MultiSpeciesComp
 #Working on xeon since spipe is installed here. 
 
+cd /data1/hania/MultiSpeciesComp
 singularity shell --bind /data1:/mnt parse_single_cell.1.0.6p.sif
 PATH="/share/miniconda/bin:/share/miniconda/envs/spipe/bin:$PATH"
 
@@ -75,18 +76,19 @@ nohup split-pipe \
 --genes $path2data/genomes/Homo_sapiens.GRCh38.112.gtf.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.gtf.gz $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf.gz $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.112.gtf  $path2data/genomes/Mus_musculus.GRCm39.112.gtf.gz \
 --output_dir $path2data/genomes/ensemble_ttc_mixed_ref &
 
-split-pipe --mode all --kit WT_mega --chemistry v2 --genome_dir $path2data/genomes/ensemble_mixed_ref/ \
---fq1 $path2data/expdata/Round1_fastqc_kim/Hania_1_S100_R1_001.fastq.gz \
---fq2 $path2data/expdata/Round1_fastqc_kim/Hania_1_S100_R2_001.fastq.gz  \
---output_dir $path2data/analysis/sublib1_A2
+split-pipe --mode all --kit WT --kit_score_skip --kit_score_skip --chemistry v2 --genome_dir $path2data/genomes/ensemble_mixed_ref/ \
+--fq1 $path2data/expdata/Round2_fastqc_kim/Hania_1_S81_R1_001.fastq.gz \
+--fq2 $path2data/expdata/Round2_fastqc_kim/Hania_1_S81_R2_001.fastq.gz \
+--output_dir $path2data/analysis/sublib1_A5
+
 
 split-pipe --mode all --kit mega --chemistry v2 --genome_dir $path2data/genomes/ensemble_mixed_ref/ \
---fq1 $path2data/expdata/Round1_fastqc_kim/Hania_2_S101_R1_001.fastq.gz \
---fq2 $path2data/expdata/Round1_fastqc_kim/Hania_2_S101_R2_001.fastq.gz  \
---output_dir $path2data/analysis/sublib2_B2
+--fq1 $path2data/expdata/Round2_fastqc_kim/Hania_2_S82_R1_001.fastq.gz \
+--fq2 $path2data/expdata/Round2_fastqc_kim/Hania_2_S82_R2_001.fastq.gz \
+--output_dir $path2data/analysis/sublib2_B5
 
 split-pipe --mode all --kit WT --chemistry v2 --genome_dir $path2data/genomes/ensemble_mixed_ref/ \
---fq1 $path2data/expdata/Round1_fastqc_kim/Hania_3_S102_R1_001.fastq.gz \
---fq2 $path2data/expdata/Round1_fastqc_kim/Hania_3_S102_R2_001.fastq.gz  \
---output_dir $path2data/analysis/sublib3_C2
+--fq1 $path2data/expdata/Round2_fastqc_kim/Hania_3_S83_R1_001.fastq.gz \
+--fq2 $path2data/expdata/Round2_fastqc_kim/Hania_3_S83_R2_001.fastq.gz \
+--output_dir $path2data/analysis/sublib3_C5
 
