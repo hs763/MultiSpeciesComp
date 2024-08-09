@@ -72,8 +72,8 @@ nohup split-pipe \
 nohup split-pipe \
 --mode mkref \
 --genome_name GRCh38 PanTro3_TTC GorGor1_TTC MacFas6 GRCm39 \
---fasta $path2data/genomes/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.fna.gz $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.fna.gz $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.dna.toplevel.fa $path2data/genomes/Mus_musculus.GRCm39.dna.primary_assembly.fa \
---genes $path2data/genomes/Homo_sapiens.GRCh38.112.gtf.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.gtf.gz $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf.gz $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.112.gtf  $path2data/genomes/Mus_musculus.GRCm39.112.gtf.gz \
+--fasta $path2data/genomes/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.fa $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.fa $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.dna.toplevel.fa $path2data/genomes/Mus_musculus.GRCm39.dna.primary_assembly.fa \
+--genes $path2data/genomes/Homo_sapiens.GRCh38.112.gtf.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.gtf $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.112.gtf $path2data/genomes/Mus_musculus.GRCm39.112.gtf \
 --output_dir $path2data/genomes/ensemble_ttc_mixed_ref &
 
 split-pipe --mode all --kit WT --kit_score_skip --kit_score_skip --chemistry v2 --genome_dir $path2data/genomes/ensemble_mixed_ref/ \
