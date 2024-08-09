@@ -2,11 +2,11 @@
 #Files stored: /data2/hanna/MultiSpeciesComp
 #Working on xeon since spipe is installed here. 
 
-singularity shell --bind /data2:/mnt parse_single_cell.1.0.6p.sif
+singularity shell --bind /data1:/mnt parse_single_cell.1.0.6p.sif
 PATH="/share/miniconda/bin:/share/miniconda/envs/spipe/bin:$PATH"
 
 #making combined reference genome 
-path2data="/mnt/hanna/MultiSpeciesComp/newvolume"
+path2data="/mnt/hania/MultiSpeciesComp/newvolume"
 nohup split-pipe \
 --mode mkref \
 --genome_name GRCh38 \
