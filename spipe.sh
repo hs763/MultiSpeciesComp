@@ -79,16 +79,16 @@ nohup split-pipe \
 split-pipe --mode all --kit WT --kit_score_skip --kit_score_skip --chemistry v2 --genome_dir $path2data/genomes/ensemble_mixed_ref/ \
 --fq1 $path2data/expdata/Round2_fastqc_kim/Hania_1_S81_R1_001.fastq.gz \
 --fq2 $path2data/expdata/Round2_fastqc_kim/Hania_1_S81_R2_001.fastq.gz \
---output_dir $path2data/analysis/sublib1_A5
+--output_dir $path2data/analysis/indiv_sublib/sublib1_A5
 
 
 split-pipe --mode all --kit mega --chemistry v2 --genome_dir $path2data/genomes/ensemble_mixed_ref/ \
 --fq1 $path2data/expdata/Round2_fastqc_kim/Hania_2_S82_R1_001.fastq.gz \
 --fq2 $path2data/expdata/Round2_fastqc_kim/Hania_2_S82_R2_001.fastq.gz \
---output_dir $path2data/analysis/sublib2_B5
+--output_dir $path2data/analysis/indiv_sublib/sublib2_B5
 
 split-pipe --mode all --kit WT --chemistry v2 --genome_dir $path2data/genomes/ensemble_mixed_ref/ \
 --fq1 $path2data/expdata/Round2_fastqc_kim/Hania_3_S83_R1_001.fastq.gz \
 --fq2 $path2data/expdata/Round2_fastqc_kim/Hania_3_S83_R2_001.fastq.gz \
---output_dir $path2data/analysis/sublib3_C5
+--output_dir $path2data/analysis/indiv_sublib/sublib3_C5
 
