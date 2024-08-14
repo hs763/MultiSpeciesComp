@@ -29,14 +29,14 @@ nohup split-pipe \
 --genome_name PanTro3 \
 --fasta $path2data/genomes/Pan_troglodytes.Pan_tro_3.0.dna.toplevel.fa \
 --genes $path2data/genomes/Pan_troglodytes.Pan_tro_3.0.112.gtf \
---output_dir $path2data/genomes/PanTro3 &
+--output_dir $path2data/genomes/PanTro3_v1.3.1 &
 
 nohup split-pipe \
 --mode mkref \
 --genome_name GorGor4 \
 --fasta $path2data/genomes/Gorilla_gorilla.gorGor4.dna.toplevel.fa \
 --genes $path2data/genomes/Gorilla_gorilla.gorGor4.112.gtf \
---output_dir $path2data/genomes/GorGor4 &
+--output_dir $path2data/genomes/GorGor4_v1.3.1 &
 
 nohup split-pipe \
 --mode mkref \
@@ -46,21 +46,25 @@ nohup split-pipe \
 --output_dir $path2data/genomes/MacFas6 &
 
 #downloading new primate genome assemblies from Telomere-to-Telomere Consortium (TTC)
+echo "mkref_star_limitGenomeGenerateRAM 41888514314" > $path2data/genomes/parfile.txt
 nohup split-pipe \
 --mode mkref \
+--parfile $path2data/genomes/parfile.txt \
 --genome_name PanTro3_TCC \
 --fasta $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.fa \
 --genes $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.gtf  \
---output_dir $path2data/genomes/PanTro3_TTC &
+--output_dir $path2data/genomes/PanTro3_TTC_v1.3.1 &
 #Problem: Genome name 2, gtf 1, fasta 0 numbers must match 
 
 # #downloading new primate genome assemblies from Telomere-to-Telomere Consortium
+echo "mkref_star_limitGenomeGenerateRAM 41888514314" > $path2data/genomes/parfile.txt
 nohup split-pipe \
 --mode mkref \
+--parfile $path2data/genomes/parfile.txt \
 --genome_name GorGor1_TTC \
 --fasta $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.fa \
 --genes $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf \
---output_dir $path2data/genomes/GorGor1_TTC &
+--output_dir $path2data/genomes/GorGor1_TTC_v1.3.1 &
 
 #making mixed reference genome (ENSEMBLE based)
 nohup split-pipe \
@@ -80,14 +84,14 @@ split-pipe \
 --genes $path2data/genomes/Homo_sapiens.GRCh38.112.gtf.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.gtf $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.112.gtf $path2data/genomes/Mus_musculus.GRCm39.112.gtf \
 --output_dir $path2data/genomes/ensemble_ttc_mixed_ref &
 
-# echo "mkref_star_limitGenomeGenerateRAM 41888514314" > $path2data/genomes/parfile.txt
-# split-pipe \
-# --mode mkref \
-# --parfile $path2data/genomes/parfile.txt \
-# --genome_name GRCh38 PanTro3_TTC GorGor1_TTC MacFas6 GRCm39 \
-# --fasta $path2data/genomes/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.fa $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.fa $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.dna.toplevel.fa $path2data/genomes/Mus_musculus.GRCm39.dna.primary_assembly.fa \
-# --genes $path2data/genomes/Homo_sapiens.GRCh38.112.gtf.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.gtf $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.112.gtf $path2data/genomes/Mus_musculus.GRCm39.112.gtf \
-# --output_dir $path2data/genomes/ensemble_ttc_mixed_ref 
+echo "mkref_star_limitGenomeGenerateRAM 41888514314" > $path2data/genomes/parfile.txt
+split-pipe \
+--mode mkref \
+--parfile $path2data/genomes/parfile.txt \
+--genome_name GRCh38 PanTro3_TTC GorGor1_TTC MacFas6 GRCm39 \
+--fasta $path2data/genomes/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.fa $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.fa $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.dna.toplevel.fa $path2data/genomes/Mus_musculus.GRCm39.dna.primary_assembly.fa \
+--genes $path2data/genomes/Homo_sapiens.GRCh38.112.gtf.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.gtf $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.112.gtf $path2data/genomes/Mus_musculus.GRCm39.112.gtf \
+--output_dir $path2data/genomes/ensemble_ttc_mixed_ref 
 
 #The reads are too long so I need to trim them.
 cutadapt -l 86 -o $path2data/expdata/Round2_trimmed/Hania_1_S81_R2_001.fastq.gz $path2data/expdata/Round2_fastqc_kim/Hania_1_S81_R2_001.fastq.gz
