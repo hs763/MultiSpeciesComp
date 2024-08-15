@@ -1,4 +1,4 @@
-#instaling spipe on the cluster
+#instaling spipe on the cluster https://support.parsebiosciences.com/hc/en-us/articles/23060102930580-Pipeline-Installation-Current-Version
 
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh 
 bash Miniconda3-latest-Linux-x86_64.sh
