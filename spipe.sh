@@ -47,10 +47,10 @@ nohup split-pipe \
 --genes $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf.gz \
 --output_dir $path2data/genomes/GorGor1 &
 
-# echo "mkref_star_limitGenomeGenerateRAM 41888514314" > $path2data/genomes/parfile.txt
+echo "mkref_star_limitGenomeGenerateRAM 41888514314" > $path2data/genomes/parfile.txt
 split-pipe \
 --mode mkref \
-# --parfile $path2data/genomes/parfile.txt \
+--parfile $path2data/genomes/parfile.txt \
 --genome_name GRCh38 PanTro3_TTC GorGor1_TTC MacFas6 GRCm39 \
 --fasta $path2data/genomes/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.fna.gz $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.fna.gz $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.dna.toplevel.fa.gz $path2data/genomes/Mus_musculus.GRCm39.dna.primary_assembly.fa.gz \
 --genes $path2data/genomes/Homo_sapiens.GRCh38.112.gtf.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.gtf.gz $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf.gz $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.112.gtf.gz $path2data/genomes/Mus_musculus.GRCm39.112.gtf.gz \
