@@ -96,24 +96,26 @@ split-pipe \
 #The reads are too long so I need to trim them.
 cutadapt -l 86 -o $path2data/expdata/Round2_trimmed/Hania_1_S81_R2_001.fastq.gz $path2data/expdata/Round2_fastqc_kim/Hania_1_S81_R2_001.fastq.gz
 
-split-pipe --mode all --kit WT_mega --chemistry v1 --genome_dir $path2data/genomes/ensemble_ttc_mixed_ref/ \
+echo "fastq_samp_slice 100000 865836" > $path2data/expdata/Round2_fastqc_kimparfile.txt
+split-pipe --mode all --parfile $path2data/expdata/Round2_fastqc_kim/parfile.txt --kit WT_mega --chemistry v1 --kit_score_skip \
+--genome_dir $path2data/genomes/ensemble_ttc_mixed_ref/ \
 --fq1 $path2data/expdata/Round2_fastqc_kim/Hania_1_S81_R1_001.fastq.gz \
---fq2 $path2data/expdata/Round2_trimmed/Hania_1_S81_R2_001.fastq.gz \
+--fq2 $path2data/expdata/Round2_fastqc_kim/Hania_1_S81_R2_001.fastq.gz \
 --output_dir $path2data/analysis/indiv_sublib/sublib1_A5
 
 
-split-pipe --mode all --kit WT_mega --chemistry v1 --genome_dir $path2data/genomes/ensemble_mixed_ref/ \
---fq1 $path2data/expdata/Round2_fastqc_kim/Hania_2_S82_R1_001.fastq.gz \
---fq2 $path2data/expdata/Round2_fastqc_kim/Hania_2_S82_R2_001.fastq.gz \
---output_dir $path2data/analysis/indiv_sublib/sublib2_B5
+# split-pipe --mode all --kit WT_mega --chemistry v1 --genome_dir $path2data/genomes/ensemble_mixed_ref/ \
+# --fq1 $path2data/expdata/Round2_fastqc_kim/Hania_2_S82_R1_001.fastq.gz \
+# --fq2 $path2data/expdata/Round2_fastqc_kim/Hania_2_S82_R2_001.fastq.gz \
+# --output_dir $path2data/analysis/indiv_sublib/sublib2_B5
 
-split-pipe --mode all --kit WT_mega --chemistry v1 --genome_dir $path2data/genomes/ensemble_mixed_ref/ \
---fq1 $path2data/expdata/Round2_fastqc_kim/Hania_3_S83_R1_001.fastq.gz \
---fq2 $path2data/expdata/Round2_fastqc_kim/Hania_3_S83_R2_001.fastq.gz \
---output_dir $path2data/analysis/indiv_sublib/sublib3_C5
+# split-pipe --mode all --kit WT_mega --chemistry v1 --genome_dir $path2data/genomes/ensemble_mixed_ref/ \
+# --fq1 $path2data/expdata/Round2_fastqc_kim/Hania_3_S83_R1_001.fastq.gz \
+# --fq2 $path2data/expdata/Round2_fastqc_kim/Hania_3_S83_R2_001.fastq.gz \
+# --output_dir $path2data/analysis/indiv_sublib/sublib3_C5
 
-split-pipe --mode all --kit WT_mega --chemistry v1 --genome_dir $path2data/genomes/ensemble_mixed_ref/ \
---fq1 $path2data/expdata/Round2_fastqc_kim/Hania_3_S83_R1_001.fastq.gz \
---fq2 $path2data/expdata/Round2_fastqc_kim/Hania_3_S83_R2_001.fastq.gz \
---output_dir $path2data/analysis/indiv_sublib/sublib3_C5
+# split-pipe --mode all --kit WT_mega --chemistry v1 --genome_dir $path2data/genomes/ensemble_mixed_ref/ \
+# --fq1 $path2data/expdata/Round2_fastqc_kim/Hania_3_S83_R1_001.fastq.gz \
+# --fq2 $path2data/expdata/Round2_fastqc_kim/Hania_3_S83_R2_001.fastq.gz \
+# --output_dir $path2data/analysis/indiv_sublib/sublib3_C5
 
