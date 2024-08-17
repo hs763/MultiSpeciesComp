@@ -58,7 +58,8 @@ split-pipe \
 #runign as a job
 sbatch -J individua_genomes -c 2 --mail-type=ALL --mail-user=hannas@mrc-lmb.cam.ac.uk --mem=300G individual_genomes.sh
 
-sbatch -J individua_genomes -c 2 --mail-type=ALL --mail-user=hannas@mrc-lmb.cam.ac.uk --mem=300G comb_genome.sh
+sbatch -J comb_genome -c 2 --mail-type=ALL --mail-user=hannas@mrc-lmb.cam.ac.uk --mem=300G comb_genome.sh
+#5060150
 
 #runing spipe for all the libraries individually.
 path2data="/cephfs2/hannas/MultiSpeciesComp/newvolume"
