@@ -31,7 +31,6 @@ nohup split-pipe \
 # echo "mkref_star_limitGenomeGenerateRAM 41888514314" > $path2data/genomes/parfile.txt
 nohup split-pipe \
 --mode mkref \
-# --parfile $path2data/genomes/parfile.txt \
 --genome_name PanTro3 \
 --fasta $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.fna.gz \
 --genes $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.gtf.gz \
@@ -41,7 +40,6 @@ nohup split-pipe \
 # echo "mkref_star_limitGenomeGenerateRAM 41888514314" > $path2data/genomes/parfile.txt
 nohup split-pipe \
 --mode mkref \
-# --parfile $path2data/genomes/parfile.txt \
 --genome_name GorGor1 \
 --fasta $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.fna.gz \
 --genes $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf.gz \
