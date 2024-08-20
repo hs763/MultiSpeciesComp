@@ -53,6 +53,8 @@ split-pipe \
 --fasta $path2data/genomes/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.fna.gz $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.fna.gz $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.dna.toplevel.fa.gz $path2data/genomes/Mus_musculus.GRCm39.dna.primary_assembly.fa.gz \
 --genes $path2data/genomes/Homo_sapiens.GRCh38.112.gtf.gz $path2data/genomes/GCF_028858775.2_NHGRI_mPanTro3-v2.0_pri_genomic.gtf.gz $path2data/genomes/GCF_029281585.2_NHGRI_mGorGor1-v2.0_pri_genomic.gtf.gz $path2data/genomes/Macaca_fascicularis.Macaca_fascicularis_6.0.112.gtf.gz $path2data/genomes/Mus_musculus.GRCm39.112.gtf.gz \
 --output_dir $path2data/genomes/ensemble_ttc_ref 
+--star_opts "--limitSjdbInsertNsj 1490662"
+
 
 
 #runign as a job
