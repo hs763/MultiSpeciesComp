@@ -55,22 +55,21 @@ split-pipe \
 --output_dir $path2data/genomes/ensemble_ttc_ref 
 --star_opts "--limitSjdbInsertNsj 1490662"
 
-
-
 #runign as a job
 sbatch -J individual_genomes -c 2 --mail-type=ALL --mail-user=hannas@mrc-lmb.cam.ac.uk --mem=300G individual_genomes.sh
 
 sbatch -J comb_genome -c 2 --mail-type=ALL --mail-user=hannas@mrc-lmb.cam.ac.uk --mem=300G comb_genome.sh
 #5060150
 
-#runing spipe for all the libraries individually.
+
+#runing spipe for all the libraries individually
 path2data="/cephfs2/hannas/MultiSpeciesComp/newvolume"
 echo "fastq_samp_slice 100000 865836" > $path2data/expdata/parfile.txt
 split-pipe --mode all --parfile $path2data/expdata/parfile.txt --kit WT_mega --chemistry v1 --kit_score_skip \
 --genome_dir $path2data/genomes/ensemble_ttc_ref/ \
 --fq1 $path2data/expdata/Hania_1_S81_R1_001.fastq.gz \
 --fq2 $path2data/expdata/Hania_1_S81_R2_001.fastq.gz \
---output_dir $path2data/analysis/indiv_sublib/sublib1_A5
+--output_dir $path2data/analysis/sublib1_A5
 
 echo "fastq_samp_slice 100000 865836" > $path2data/expdata/parfile.txt
 split-pipe --mode all --parfile $path2data/expdata/parfile.txt --kit WT_mega --chemistry v1 --kit_score_skip \
