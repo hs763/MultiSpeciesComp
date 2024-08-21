@@ -131,3 +131,9 @@ split-pipe --mode all --kit WT_mega --chemistry v1 --kit_score_skip \
 --fq1 $path2data/expdata/Hania_10_S90_R1_001.fastq.gz \
 --fq2 $path2data/expdata/Hania_10_S90_R2_001.fastq.gz \
 --output_dir $path2data/analysis/sublib10_F3
+
+
+split-pipe --mode comb \
+    --sublibraries $path2data/analysis/sublib10_F3 $path2data/analysis/sublib9_E3 $path2data/analysis/sublib8_H5 $path2data/analysis/sublib7_G5 $path2data/analysis/sublib6_F6 $path2data/analysis/sublib5_E5 $path2data/analysis/sublib3_C5 $path2data/analysis/sublib2_B5 $path2data/analysis/sublib1_A5 \
+    --output_dir $path2data/analysis/combined
+
