@@ -78,10 +78,56 @@ split-pipe --mode all --kit WT_mega --chemistry v1 --kit_score_skip \
 --fq2 $path2data/expdata/Hania_2_S82_R2_001.fastq.gz \
 --output_dir $path2data/analysis/indiv_sublib/sublib2_B5
 
-echo "fastq_samp_slice 100000 865836" > $path2data/expdata/parfile.txt
-split-pipe --mode all --parfile $path2data/expdata/parfile.txt --kit WT_mega --chemistry v1 --kit_score_skip \
+split-pipe --mode all --kit WT_mega --chemistry v1 --kit_score_skip \
 --genome_dir $path2data/genomes/ensemble_ttc_ref/ \
 --fq1 $path2data/expdata/Hania_3_S83_R1_001.fastq.gz  \
 --fq2 $path2data/expdata/Hania_3_S83_R2_001.fastq.gz  \
 --output_dir $path2data/analysis/indiv_sublib/sublib3_C5
 
+split-pipe --mode all --kit WT_mega --chemistry v1 --kit_score_skip \
+--genome_dir $path2data/genomes/ensemble_ttc_ref/ \
+--fq1 $path2data/expdata/Hania_3_S83_R1_001.fastq.gz  \
+--fq2 $path2data/expdata/Hania_3_S83_R2_001.fastq.gz  \
+--output_dir $path2data/analysis/indiv_sublib/sublib3_C5
+
+split-pipe --mode all --kit WT_mega --chemistry v1 --kit_score_skip \
+--genome_dir $path2data/genomes/ensemble_ttc_ref/ \
+--fq1 $path2data/expdata/Hania_4_S84_R1_001.fastq.gz \
+--fq2 $path2data/expdata/Hania_4_S84_R2_001.fastq.gz \
+--output_dir $path2data/analysis/sublib4_D5
+
+split-pipe --mode all --kit WT_mega --chemistry v1 --kit_score_skip \
+--genome_dir $path2data/genomes/ensemble_ttc_ref/ \
+--fq1 $path2data/expdata/Hania_5_S85_R1_001.fastq.gz \
+--fq2 $path2data/expdata/Hania_5_S85_R2_001.fastq.gz \
+--output_dir $path2data/analysis/sublib5_E5
+
+split-pipe --mode all --kit WT_mega --chemistry v1 --kit_score_skip \
+--genome_dir $path2data/genomes/ensemble_ttc_ref/ \
+--fq1 $path2data/expdata/Hania_6_S86_R1_001.fastq.gz \
+--fq2 $path2data/expdata/Hania_6_S86_R2_001.fastq.gz \
+--output_dir $path2data/analysis/sublib6_F6
+
+split-pipe --mode all --kit WT_mega --chemistry v1 --kit_score_skip \
+--genome_dir $path2data/genomes/ensemble_ttc_ref/ \
+--fq1 $path2data/expdata/Hania_7_S87_R1_001.fastq.gz \
+--fq2 $path2data/expdata/Hania_7_S87_R2_001.fastq.gz \
+--output_dir $path2data/analysis/sublib7_G5
+
+split-pipe --mode all --kit WT_mega --chemistry v1 --kit_score_skip \
+--genome_dir $path2data/genomes/ensemble_ttc_ref/ \
+--fq1 $path2data/expdata/Hania_8_S88_R1_001.fastq.gz \
+--fq2 $path2data/expdata/Hania_8_S88_R2_001.fastq.gz \
+--output_dir $path2data/analysis/sublib8_H5
+
+split-pipe --mode all --kit WT_mega --chemistry v1 --kit_score_skip \
+--genome_dir $path2data/genomes/ensemble_ttc_ref/ \
+--fq1 $path2data/expdata/Hania_9_S89_R1_001.fastq.gz \
+--fq2 $path2data/expdata/Hania_9_S89_R2_001.fastq.gz \
+--output_dir $path2data/analysis/sublib9_E3
+
+split-pipe --mode all --kit WT_mega --chemistry v1 --kit_score_skip \
+--genome_dir $path2data/genomes/ensemble_ttc_ref/ \
+--fq1 $path2data/expdata/Hania_10_S90_R1_001.fastq.gz \
+--fq2 $path2data/expdata/Hania_10_S90_R2_001.fastq.gz \
+--output_dir $path2data/analysis/sublib10_F3
