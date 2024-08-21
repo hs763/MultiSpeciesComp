@@ -71,16 +71,16 @@ split-pipe --mode all --parfile $path2data/expdata/parfile.txt --kit WT_mega --c
 --fq2 $path2data/expdata/Hania_1_S81_R2_001.fastq.gz \
 --output_dir $path2data/analysis/sublib1_A5
 
-echo "fastq_samp_slice 100000 865836" > $path2data/expdata/parfile.txt
-split-pipe --mode all --parfile $path2data/expdata/parfile.txt --kit WT_mega --chemistry v1 --kit_score_skip \
---genome_dir $path2data/genomes/ensemble_ttc_mixed_ref/ \
+path2data="/cephfs2/hannas/MultiSpeciesComp/newvolume"
+split-pipe --mode all --kit WT_mega --chemistry v1 --kit_score_skip \
+--genome_dir $path2data/genomes/ensemble_ttc_ref/ \
 --fq1 $path2data/expdata/Hania_2_S82_R1_001.fastq.gz \
 --fq2 $path2data/expdata/Hania_2_S82_R2_001.fastq.gz \
---output_dir $path2data/analysis/indiv_sublib/sublib2_1B5
+--output_dir $path2data/analysis/indiv_sublib/sublib2_B5
 
 echo "fastq_samp_slice 100000 865836" > $path2data/expdata/parfile.txt
 split-pipe --mode all --parfile $path2data/expdata/parfile.txt --kit WT_mega --chemistry v1 --kit_score_skip \
---genome_dir $path2data/genomes/ensemble_ttc_mixed_ref/ \
+--genome_dir $path2data/genomes/ensemble_ttc_ref/ \
 --fq1 $path2data/expdata/Hania_3_S83_R1_001.fastq.gz  \
 --fq2 $path2data/expdata/Hania_3_S83_R2_001.fastq.gz  \
 --output_dir $path2data/analysis/indiv_sublib/sublib3_C5
