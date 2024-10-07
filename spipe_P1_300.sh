@@ -40,4 +40,4 @@ split-pipe --mode comb \
     --sublibraries $path2data/analysis/indiv_sublib/sublib1 $path2data/analysis/indiv_sublib/sublib7 \
     --output_dir $path2data/analysis/combined_1_7
 
-sbatch -J individual_genomes -c 6 --mail-type=ALL --mail-user=hannas@mrc-lmb.cam.ac.uk --mem=300G sublib1.sh
+sbatch -J individual_genomes -c 6 --mail-type=ALL --mail-user=hannas@mrc-lmb.cam.ac.uk --mem=300G combined_1_7.sh
