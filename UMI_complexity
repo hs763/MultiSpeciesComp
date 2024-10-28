@@ -1,0 +1,35 @@
+import matplotlib.pyplot as plt
+
+def extract_and_count_sequences(fasta_file_path):
+    sequence_counts = {}  # Dictionary to store sequences and their counts
+
+    with open(fasta_file_path, 'r') as file:
+        for i, line in enumerate(file):
+            line = line.strip()
+            
+            if (i % 4) == 3:
+                sequence = line[:10]
+                
+                if sequence in sequence_counts:
+                    sequence_counts[sequence] += 1
+                else:
+                    sequence_counts[sequence] = 1
+    
+    return sequence_counts
+
+fasta_file_path = 'your_file.fasta'
+sequence_counts = extract_and_count_sequences(fasta_file_path)
+
+#plotting 
+sequences = list(sequence_counts.keys())
+counts = list(sequence_counts.values())
+
+    plt.figure(figsize=(10, 6))
+    plt.bar(sequences, counts, color='skyblue')
+    plt.xlabel('10-character Sequence')
+    plt.ylabel('Count')
+    plt.title('Frequency of 10-character Sequences in FASTA File')
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+    plt.show()
+
