@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 def extract_and_count_sequences(fasta_file_path):
-    sequence_counts = {}  # Dictionary to store sequences and their counts
+    sequence_counts = {} 
 
     with open(fasta_file_path, 'r') as file:
         for i, line in enumerate(file):
@@ -17,10 +17,28 @@ def extract_and_count_sequences(fasta_file_path):
     
     return sequence_counts
 
-fasta_file_path = 'your_file.fasta'
-sequence_counts = extract_and_count_sequences(fasta_file_path)
+fasta_file_path1 = '/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/expdata/Hania_1_R_S3_R1_001.fastq.gz'
+fasta_file_path7 = '/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/expdata/Hania_7_R_S4_R1_001.fastq.gz'
+sequence_counts1 = extract_and_count_sequences(fasta_file_path1)
+sequence_counts7 = extract_and_count_sequences(fasta_file_path7)
 
-#plotting 
+
+#plotting sublibrary 1
+sequence_counts = sequence_counts1
+sequences = list(sequence_counts.keys())
+counts = list(sequence_counts.values())
+
+    plt.figure(figsize=(10, 6))
+    plt.bar(sequences, counts, color='skyblue')
+    plt.xlabel('10-character Sequence')
+    plt.ylabel('Count')
+    plt.title('Frequency of 10-character Sequences in FASTA File')
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+    plt.show()
+
+#plotting sublibrary 7
+sequence_counts = sequence_counts7
 sequences = list(sequence_counts.keys())
 counts = list(sequence_counts.values())
 
