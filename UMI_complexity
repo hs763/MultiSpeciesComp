@@ -1,13 +1,16 @@
 import matplotlib.pyplot as plt
+import gzip
+
 
 def extract_and_count_sequences(fasta_file_path):
     sequence_counts = {} 
 
-    with open(fasta_file_path, 'r') as file:
+     open_func = gzip.open if fasta_file_path.endswith('.gz') else open
+     with open_func(fasta_file_path, 'rt') as file: 
         for i, line in enumerate(file):
             line = line.strip()
             
-            if (i % 4) == 3:
+            if (i+1 % 4) == 2:
                 sequence = line[:10]
                 
                 if sequence in sequence_counts:
