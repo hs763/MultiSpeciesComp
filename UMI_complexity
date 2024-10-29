@@ -3,21 +3,17 @@ import gzip
 
 
 def extract_and_count_sequences(fasta_file_path):
-    sequence_counts = {} 
-
-     open_func = gzip.open if fasta_file_path.endswith('.gz') else open
-     with open_func(fasta_file_path, 'rt') as file: 
+    sequence_counts = {}
+    open_func = gzip.open if fasta_file_path.endswith('.gz') else open
+    with open_func(fasta_file_path, 'rt') as file:
         for i, line in enumerate(file):
             line = line.strip()
-            
-            if (i+1 % 4) == 2:
+            if (i + 1) % 4 == 2:
                 sequence = line[:10]
-                
                 if sequence in sequence_counts:
                     sequence_counts[sequence] += 1
                 else:
                     sequence_counts[sequence] = 1
-    
     return sequence_counts
 
 fasta_file_path1 = '/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/expdata/Hania_1_R_S3_R1_001.fastq.gz'
@@ -31,26 +27,35 @@ sequence_counts = sequence_counts1
 sequences = list(sequence_counts.keys())
 counts = list(sequence_counts.values())
 
-    plt.figure(figsize=(10, 6))
-    plt.bar(sequences, counts, color='skyblue')
-    plt.xlabel('10-character Sequence')
-    plt.ylabel('Count')
-    plt.title('Frequency of 10-character Sequences in FASTA File')
-    plt.xticks(rotation=45, ha='right')
-    plt.tight_layout()
-    plt.show()
+sorted_sequences = sorted(sequence_counts.items(), key=lambda x: x[1], reverse=True)
+top_sequences, top_counts = zip(*sorted_sequences)
+
+# Plotting without x-axis labels
+plt.figure(figsize=(12, 6))
+plt.bar(range(len(top_sequences)), top_counts, color='skyblue')
+plt.xlabel('Sequences (not labeled)')
+plt.ylabel('Count')
+plt.title('Frequency of 10-character Sequences in FASTA File')
+plt.tight_layout()
+
+# Save the plot as PNG
+plt.savefig('/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/UMI_complexity_sublibrary1.png', format='png', dpi=300)
+
+
 
 #plotting sublibrary 7
 sequence_counts = sequence_counts7
 sequences = list(sequence_counts.keys())
 counts = list(sequence_counts.values())
 
-    plt.figure(figsize=(10, 6))
-    plt.bar(sequences, counts, color='skyblue')
-    plt.xlabel('10-character Sequence')
-    plt.ylabel('Count')
-    plt.title('Frequency of 10-character Sequences in FASTA File')
-    plt.xticks(rotation=45, ha='right')
-    plt.tight_layout()
-    plt.show()
+sorted_sequences = sorted(sequence_counts.items(), key=lambda x: x[1], reverse=True)
+top_sequences, top_counts = zip(*sorted_sequences)
 
+plt.figure(figsize=(12, 6))
+plt.bar(range(len(top_sequences)), top_counts, color='skyblue')
+plt.xlabel('Sequences (not labeled)')
+plt.ylabel('Count')
+plt.title('Frequency of 10-character Sequences in FASTA File')
+plt.tight_layout()
+
+plt.savefig('/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/UMI_complexity_sublibrary7.png', format='png', dpi=300)
