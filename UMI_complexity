@@ -63,3 +63,31 @@ plt.tight_layout()
 plt.show()
 
 plt.savefig('/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/UMI_complexity_sublibrary7.png', format='png', dpi=300)
+
+
+
+#plotting sublibrary 2, 3 and 4 from Dan's data 
+control2_file = '/cephfs2/hannas/tetraploids/expdata/raw_data/UDI-WT-2_2.fastq.gz'
+control3_file = '/cephfs2/hannas/tetraploids/expdata/raw_data/UDI-WT-3_2.fastq.gz'
+control4_file = '/cephfs2/hannas/tetraploids/expdata/raw_data/UDI-WT-4_2.fastq.gz'
+sequence_control2 = extract_and_count_sequences(control2_file)
+sequence_control3 = extract_and_count_sequences(control3_file)
+sequence_control4 = extract_and_count_sequences(control4_file)
+
+sequence_counts = sequence_control2
+sequences = list(sequence_counts.keys())
+counts = list(sequence_counts.values())
+
+sorted_sequences = sorted(sequence_counts.items(), key=lambda x: x[1], reverse=True)
+top_sequences, top_counts = zip(*sorted_sequences)
+
+plt.figure(figsize=(12, 6))
+plt.bar(range(len(top_sequences)), top_counts, color='skyblue')
+plt.yscale('log')  # Set y-axis to log scale
+plt.xlabel('Sequences (not labeled)')
+plt.ylabel('Count (log scale)')
+plt.title('Frequency of 10-character Sequences in FASTA File')
+plt.tight_layout()
+plt.show()
+
+plt.savefig('/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/UMI_complexity_control_tetraploid_sublib2.png', format='png', dpi=300)
