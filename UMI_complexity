@@ -16,8 +16,8 @@ def extract_and_count_sequences(fasta_file_path):
                     sequence_counts[sequence] = 1
     return sequence_counts
 
-fasta_file_path1 = '/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/expdata/Hania_1_R_S3_R1_001.fastq.gz'
-fasta_file_path7 = '/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/expdata/Hania_7_R_S4_R1_001.fastq.gz'
+fasta_file_path1 = '/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/expdata/Hania_1_R_S3_R2_001.fastq.gz'
+fasta_file_path7 = '/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/expdata/Hania_7_R_S4_R2_001.fastq.gz'
 sequence_counts1 = extract_and_count_sequences(fasta_file_path1)
 sequence_counts7 = extract_and_count_sequences(fasta_file_path7)
 
@@ -33,10 +33,12 @@ top_sequences, top_counts = zip(*sorted_sequences)
 # Plotting without x-axis labels
 plt.figure(figsize=(12, 6))
 plt.bar(range(len(top_sequences)), top_counts, color='skyblue')
+plt.yscale('log')  # Set y-axis to log scale
 plt.xlabel('Sequences (not labeled)')
-plt.ylabel('Count')
+plt.ylabel('Count (log scale)')
 plt.title('Frequency of 10-character Sequences in FASTA File')
 plt.tight_layout()
+plt.show()
 
 # Save the plot as PNG
 plt.savefig('/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/UMI_complexity_sublibrary1.png', format='png', dpi=300)
@@ -53,9 +55,11 @@ top_sequences, top_counts = zip(*sorted_sequences)
 
 plt.figure(figsize=(12, 6))
 plt.bar(range(len(top_sequences)), top_counts, color='skyblue')
+plt.yscale('log')  # Set y-axis to log scale
 plt.xlabel('Sequences (not labeled)')
-plt.ylabel('Count')
+plt.ylabel('Count (log scale)')
 plt.title('Frequency of 10-character Sequences in FASTA File')
 plt.tight_layout()
+plt.show()
 
 plt.savefig('/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/UMI_complexity_sublibrary7.png', format='png', dpi=300)
