@@ -1,5 +1,10 @@
 import matplotlib.pyplot as plt
 import gzip
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
 
 
 def extract_and_count_sequences(fasta_file_path):
@@ -16,7 +21,7 @@ def extract_and_count_sequences(fasta_file_path):
                     sequence_counts[sequence] = 1
     return sequence_counts
 
-fasta_file_path1 = '/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/expdata/Hania_1_R_S3_R2_001.fastq.gz'
+fasta_file_path1 = '/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/expdata/Hania_R_S3_R2_001.fastq.gz'
 fasta_file_path7 = '/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/expdata/Hania_7_R_S4_R2_001.fastq.gz'
 sequence_counts1 = extract_and_count_sequences(fasta_file_path1)
 sequence_counts7 = extract_and_count_sequences(fasta_file_path7)
@@ -65,6 +70,53 @@ plt.show()
 plt.savefig('/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/UMI_complexity_sublibrary7.png', format='png', dpi=300)
 
 
+#plotting intial very low coverage run
+path2data = '/cephfs2/hannas/MultiSpeciesComp/low_covereage_seq/newvolume/expdata/'
+sub1 = os.path.join(path2data, 'Hania_1_S81_R2_001.fastq.gz')
+sub2 = os.path.join(path2data, 'Hania_2_S82_R2_001.fastq.gz')
+sub3 = os.path.join(path2data, 'Hania_3_S83_R2_001.fastq.gz')
+sub4 = os.path.join(path2data, 'Hania_4_S84_R2_001.fastq.gz')
+sub5 = os.path.join(path2data, 'Hania_5_S85_R2_001.fastq.gz')
+sub6 = os.path.join(path2data, 'Hania_6_S86_R2_001.fastq.gz')
+sub7 = os.path.join(path2data, 'Hania_7_S87_R2_001.fastq.gz')
+sub8 = os.path.join(path2data, 'Hania_8_S88_R2_001.fastq.gz')
+sub9 = os.path.join(path2data, 'Hania_9_S89_R2_001.fastq.gz')
+sub10 = os.path.join(path2data, 'Hania_10_S90_R2_001.fastq.gz')
+
+sequence_counts_list = {
+    'sub1_sequence': extract_and_count_sequences(sub1),
+    'sub2_sequence': extract_and_count_sequences(sub2),
+    'sub3_sequence': extract_and_count_sequences(sub3),
+    'sub4_sequence': extract_and_count_sequences(sub4),
+    'sub5_sequence': extract_and_count_sequences(sub5),
+    'sub6_sequence': extract_and_count_sequences(sub6),
+    'sub7_sequence': extract_and_count_sequences(sub7),
+    'sub8_sequence': extract_and_count_sequences(sub8),
+    'sub9_sequence': extract_and_count_sequences(sub9),
+    'sub10_sequence': extract_and_count_sequences(sub10)
+}
+
+
+for sublibrary_name, sequence_counts in sequence_counts_list.items():
+    sequence_data = pd.DataFrame(list(sequence_counts.items()), columns=["sequence", "count"])
+    sequence_data = sequence_data.sort_values(by="count", ascending=False)
+
+    plt.figure(figsize=(12, 6))
+    plt.bar(sequence_data["sequence"], sequence_data["count"], color='skyblue')
+    plt.yscale('log')
+    plt.title(f'Frequency of 10-character Sequences in {sublibrary_name}')
+    plt.xlabel('Sequences (not labeled)')
+    plt.ylabel('Count (log scale)')
+    plt.xticks([])
+
+    output_path = f"/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/{sublibrary_name}_UMI_complexity.png"
+    plt.tight_layout()
+    plt.savefig(output_path, format='png', dpi=300)
+    plt.close()
+
+
+
+
 
 #plotting sublibrary 2, 3 and 4 from Dan's data 
 control2_file = '/cephfs2/hannas/tetraploids/expdata/raw_data/UDI-WT-2_2.fastq.gz'
@@ -74,7 +126,7 @@ sequence_control2 = extract_and_count_sequences(control2_file)
 sequence_control3 = extract_and_count_sequences(control3_file)
 sequence_control4 = extract_and_count_sequences(control4_file)
 
-sequence_counts = sequence_control2
+sequence_counts = sequence_control4
 sequences = list(sequence_counts.keys())
 counts = list(sequence_counts.values())
 
@@ -90,4 +142,4 @@ plt.title('Frequency of 10-character Sequences in FASTA File')
 plt.tight_layout()
 plt.show()
 
-plt.savefig('/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/UMI_complexity_control_tetraploid_sublib2.png', format='png', dpi=300)
+plt.savefig('/cephfs2/hannas/MultiSpeciesComp/P1300/newvolume/UMI_complexity_control_tetraploid_sublib4.png', format='png', dpi=300)
