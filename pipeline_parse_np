@@ -1,0 +1,5 @@
+nextflow run -config /public/singularity/containers/nextflow/lmb-nextflow/genomes.config,/public/singularity/containers/nextflow/nf-split-pipe/nextflow.config \
+-profile lmb_cluster /public/singularity/containers/nextflow/nf-split-pipe/main.nf \
+--genome_dir /cephfs2/hannas/MultiSpeciesComp/final/genome/GENOME_INDEX \
+--samp_list /cephfs2/hannas/MultiSpeciesComp/final/expdata/pipeline_Parse_np/SampleLoadingTable_MultiSpieciesComp.txt \
+--fastq /cephfs2/hannas/MultiSpeciesComp/final/expdata/FASTQ --chemistry v1 --concatenate -bg
