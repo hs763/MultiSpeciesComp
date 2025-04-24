@@ -23,7 +23,7 @@ nohup split-pipe \
 cd /cephfs2/hannas/MultiSpeciesComp/final/expdata/parsnip_only_human_ref
 
 nextflow run -config /public/singularity/containers/nextflow/lmb-nextflow/genomes.config,/public/singularity/containers/nextflow/ParseNIP/nextflow.config \
--profile lmb_cluster /public/singularity/containers/nextflow/ParseNIP/main.nf --genome homo_sapiens.GRCh38.release_102 \
---genome_name homo_sapiens.GRCh38.release_102 \
+-profile lmb_cluster /public/singularity/containers/nextflow/ParseNIP/main.nf \ 
+--genome homo_sapiens.GRCh38.release_102 --genome_name homo_sapiens.GRCh38.release_102 \
 --samp_list /cephfs2/hannas/MultiSpeciesComp/final/expdata/parsnip_only_human_ref/SampleLoadingTable_MultiSpieciesComp.txt \
---fastq /cephfs2/hannas/MultiSpeciesComp/final/expdata/FASTQ --chemistry v1 -bg
+--fastq /cephfs2/hannas/MultiSpeciesComp/final/expdata/FASTQ --chemistry v1 --concatenate -bg
