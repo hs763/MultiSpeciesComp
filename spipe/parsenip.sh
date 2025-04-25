@@ -27,3 +27,10 @@ nextflow run -config /public/singularity/containers/nextflow/lmb-nextflow/genome
 --genome homo_sapiens.GRCh38.release_102 --genome_name homo_sapiens.GRCh38.release_102 \
 --samp_list /cephfs2/hannas/MultiSpeciesComp/final/expdata/parsnip_only_human_ref/SampleLoadingTable_MultiSpieciesComp.txt \
 --fastq /cephfs2/hannas/MultiSpeciesComp/final/expdata/FASTQ --chemistry v1 --concatenate -bg
+
+#runign the pipeline only for 3 good quality samples selected by looking at the umaps of those smaples after combinignt he sublibraries. 
+nextflow run -config /public/singularity/containers/nextflow/lmb-nextflow/genomes.config,/public/singularity/containers/nextflow/ParseNIP/nextflow.config \
+-profile lmb_cluster /public/singularity/containers/nextflow/ParseNIP/main.nf \
+--genome_dir /cephfs2/hannas/MultiSpeciesComp/final/genome/GENOME_INDEX \
+--samp_list /cephfs2/hannas/MultiSpeciesComp/final/expdata/parsnip_good_sample/SampleLoadingTable_MultiSpieciesComp.txt \
+--fastq /cephfs2/hannas/MultiSpeciesComp/final/expdata/FASTQ --chemistry v1 --concatenate -bg
