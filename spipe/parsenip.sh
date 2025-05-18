@@ -34,3 +34,9 @@ nextflow run -config /public/singularity/containers/nextflow/lmb-nextflow/genome
 --genome_dir /cephfs2/hannas/MultiSpeciesComp/final/genome/GENOME_INDEX \
 --samp_list /cephfs2/hannas/MultiSpeciesComp/final/expdata/parsnip_good_sample/SampleLoadingTable_MultiSpieciesComp.txt \
 --fastq /cephfs2/hannas/MultiSpeciesComp/final/expdata/FASTQ --chemistry v1 --concatenate -bg
+
+nextflow run -config /public/singularity/containers/nextflow/lmb-nextflow/genomes.config,/public/singularity/containers/nextflow/ParseNIP/nextflow.config \
+-profile lmb_cluster /public/singularity/containers/nextflow/ParseNIP/main.nf \
+--genome homo_sapiens.GRCh38.release_102 --genome_name homo_sapiens.GRCh38.release_102 \
+--samp_list /cephfs2/hannas/MultiSpeciesComp/final/expdata/good/b10-good.txt \
+--fastq /cephfs2/hannas/MultiSpeciesComp/final/expdata/FASTQ --chemistry v1 --concatenate -bg
