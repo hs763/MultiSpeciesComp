@@ -1,0 +1,15 @@
+#preping k-mer library
+utils/demux_species_ref.py -k 60 -o [path to storing k-mers library] \
+    -n Human Chimp Gorilla Macaque Mouse \
+    -f [species1_fasta] [species2_fasta] ... \
+    (-g [species1_gtf] [species2_gtf] ... ) \
+    -N -1 \
+    (--FastK /path/to/utils/demux_species_ref.py)
+
+#install nextflow on debono
+#"You will only need to provide the path to a set of unique k-mer lists (see above), a cell barcode whitelist, a list of library names, and a path to your RNA-seq data. "
+utils/demux_species.nf -k kmer_list \
+    --rna_r1/-r \
+    --rna_r2/-R \
+    --whitelist_rna/-w \
+    -o \
