@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Define the base path to the Ensembl genome references
+ENSEMBL_PATH="/public/genomics/species_references/nextflow/Genome_References/Ensembl"
+
+# Run the ParseNIP Nextflow pipeline with specified parameters
+nextflow run /public/singularity/containers/nextflow/ParseNIP/main.nf \
+  -profile lmb_cluster \
+  --fasta "${ENSEMBL_PATH}/homo_sapiens/GRCh38/Release_102/FASTA/homo_sapiens__GRCh38__release102.dna.fa,${ENSEMBL_PATH}/pan_troglodytes/Pan_tro_3.0/Release_105/FASTA/pan_troglodytes__Pan_tro_3.0__release105.dna.fa,${ENSEMBL_PATH}/gorilla_gorilla/gorGor4/Release_110/FASTA/gorilla_gorilla__gorGor4__release110.dna.fa,${ENSEMBL_PATH}/macaca_fascicularis/Macaca_fascicularis_6.0/Release_112/FASTA/macaca_fascicularis__Macaca_fascicularis_6.0__release112.dna.fa,${ENSEMBL_PATH}/mus_musculus/GRCm39/Release_108/FASTA/mus_musculus__GRCm39__release108.dna.fa" \
+  --gtf "${ENSEMBL_PATH}/homo_sapiens/GRCh38/Release_102/GTF/Homo_sapiens.GRCh38.102.gtf,${ENSEMBL_PATH}/pan_troglodytes/Pan_tro_3.0/Release_105/GTF/Pan_troglodytes.Pan_tro_3.0.105.gtf,${ENSEMBL_PATH}/gorilla_gorilla/gorGor4/Release_110/GTF/Gorilla_gorilla.gorGor4.110.gtf,${ENSEMBL_PATH}/macaca_fascicularis/Macaca_fascicularis_6.0/Release_112/GTF/Macaca_fascicularis.Macaca_fascicularis_6.0.112.gtf,${ENSEMBL_PATH}/mus_musculus/GRCm39/Release_108/GTF/Mus_musculus.GRCm39.108.gtf" \
+  --genome_name "GRCh38,Pan_tro_3.0,gorGor4,Macaca_fascicularis_6.0,GRCm39"
+
+
+
