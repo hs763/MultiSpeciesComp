@@ -4,3 +4,13 @@ gffread -F -w [output_tx.fa] -g [genome_fasta.fa] [unzipped_gtf.gtf]
 gffread -F -w [output_tx.fa] -g [genome_fasta.fa] [unzipped_gtf.gtf]
 gffread -F -w [output_tx.fa] -g [genome_fasta.fa] [unzipped_gtf.gtf]
 gffread -F -w [output_tx.fa] -g [genome_fasta.fa] [unzipped_gtf.gtf]
+
+#crearte Kmer lists 
+FastK -N[output_prefix] -k[kmer_size] -t1 [output_tx.fa]
+FastK -N[output_prefix] -k[kmer_size] -t1 [output_tx.fa]
+FastK -N[output_prefix] -k[kmer_size] -t1 [output_tx.fa]
+FastK -N[output_prefix] -k[kmer_size] -t1 [output_tx.fa]
+FastK -N[output_prefix] -k[kmer_size] -t1 [output_tx.fa]
+
+#find species unique kmers 
+utils/get_unique_kmers -k human.ktab -k chimp.ktab -k gorilla.ktab -k macaque.ktab -k mouse.ktab -n Human -n Chimp -n Gorilla -n Macaque -n Mouse -o hcgmm_kmers
