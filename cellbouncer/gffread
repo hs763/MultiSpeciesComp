@@ -1,16 +1,21 @@
+GENOME_PATH="/data/__HOME_DIRECTORIES/hannas/MultiSpeciesComp/genomes/"
+GFFREAD_PATH="/data/__HOME_DIRECTORIES/hannas/gffread/"
+FASTK_PATH="/data/__HOME_DIRECTORIES/hannas/FASTK/"
+CELLBOUNCER_PATH="/data/__HOME_DIRECTORIES/hannas/cellbouncer/"
+
 #creatingtrasncriptome files form genomes and annotation files
-gffread -F -w [output_tx.fa] -g [genome_fasta.fa] [unzipped_gtf.gtf]
-gffread -F -w [output_tx.fa] -g [genome_fasta.fa] [unzipped_gtf.gtf]
-gffread -F -w [output_tx.fa] -g [genome_fasta.fa] [unzipped_gtf.gtf]
-gffread -F -w [output_tx.fa] -g [genome_fasta.fa] [unzipped_gtf.gtf]
-gffread -F -w [output_tx.fa] -g [genome_fasta.fa] [unzipped_gtf.gtf]
+${GFFREAD_PATH}gffread -F -w human_tx.fa -g ${GENOME_PATH}Homo_sapiens.GRCh38.dna.primary_assembly.fa ${GENOME_PATH}Homo_sapiens.GRCh38.114.gtf
+${GFFREAD_PATH}gffread -F -w chimp_tx.fa -g ${GENOME_PATH}Pan_troglodytes.Pan_tro_3.0.dna.toplevel.fa ${GENOME_PATH}Pan_troglodytes.Pan_tro_3.0.114.gtf
+${GFFREAD_PATH}gffread -F -w gorilla_tx.fa -g ${GENOME_PATH}Gorilla_gorilla.gorGor4.dna.toplevel.fa ${GENOME_PATH}Gorilla_gorilla.gorGor4.114.gtf
+${GFFREAD_PATH}gffread -F -w macaque_tx.fa -g ${GENOME_PATH}Macaca_fascicularis.Macaca_fascicularis_6.0.dna.toplevel.fa ${GENOME_PATH}Macaca_fascicularis.Macaca_fascicularis_6.0.114.gtf
+${GFFREAD_PATH}gffread -F -w mouse_tx.fa -g ${GENOME_PATH}Mus_musculus.GRCm39.dna.primary_assembly.fa ${GENOME_PATH}Mus_musculus.GRCm39.114.gtf
 
 #crearte Kmer lists 
-FastK -N[output_prefix] -k[kmer_size] -t1 [output_tx.fa]
-FastK -N[output_prefix] -k[kmer_size] -t1 [output_tx.fa]
-FastK -N[output_prefix] -k[kmer_size] -t1 [output_tx.fa]
-FastK -N[output_prefix] -k[kmer_size] -t1 [output_tx.fa]
-FastK -N[output_prefix] -k[kmer_size] -t1 [output_tx.fa]
+${FASTK_PATH}FastK -Nhuman -k60 -t1 ${GENOME_PATH}human_tx.fa
+${FASTK_PATH}FastK -Nchimp -k60 -t1 ${GENOME_PATH}chimp_tx.fa
+${FASTK_PATH}FastK -Ngorilla -k60 -t1 ${GENOME_PATH}gorilla_tx.fa
+${FASTK_PATH}FastK -Nmacaque -k60 -t1 ${GENOME_PATH}macaque_tx.fa
+${FASTK_PATH}FastK -Nmouse -k60 -t1 ${GENOME_PATH}mouse_tx.fa
 
 #find species unique kmers 
-utils/get_unique_kmers -k human.ktab -k chimp.ktab -k gorilla.ktab -k macaque.ktab -k mouse.ktab -n Human -n Chimp -n Gorilla -n Macaque -n Mouse -o hcgmm_kmers
+${CELLBOUNCER_PATH}utils/get_unique_kmers -k ${GENOME_PATH}human.ktab -k ${GENOME_PATH}chimp.ktab -k ${GENOME_PATH}gorilla.ktab -k ${GENOME_PATH}macaque.ktab -k ${GENOME_PATH}mouse.ktab -n Human -n Chimp -n Gorilla -n Macaque -n Mouse -o ${GENOME_PATH}hcgmm_kmers
