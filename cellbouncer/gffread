@@ -1,0 +1,6 @@
+#creatingtrasncriptome files form genomes and annotation files
+gffread -F -w [output_tx.fa] -g [genome_fasta.fa] [unzipped_gtf.gtf]
+gffread -F -w [output_tx.fa] -g [genome_fasta.fa] [unzipped_gtf.gtf]
+gffread -F -w [output_tx.fa] -g [genome_fasta.fa] [unzipped_gtf.gtf]
+gffread -F -w [output_tx.fa] -g [genome_fasta.fa] [unzipped_gtf.gtf]
+gffread -F -w [output_tx.fa] -g [genome_fasta.fa] [unzipped_gtf.gtf]
