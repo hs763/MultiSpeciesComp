@@ -1,0 +1,56 @@
+# CellBouncer Docker Environment
+# Based on installation instructions from https://github.com/nkschaefer/cellbouncer
+
+FROM condaforge/mambaforge:latest
+
+# Install system dependencies (minimal approach)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    gcc \
+    g++ \
+    make \
+    libc6-dev \
+    zlib1g-dev \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Create a non-root user
+RUN useradd -m -s /bin/bash cellbouncer
+USER cellbouncer
+WORKDIR /home/cellbouncer
+
+# Clone the repository with submodules
+RUN git clone --recurse-submodules https://github.com/nkschaefer/cellbouncer.git
+
+# Change to the cellbouncer directory
+WORKDIR /home/cellbouncer/cellbouncer
+
+# Create conda environment using the minimum requirements file
+RUN mamba env create -f cellbouncer_minimum.yml
+
+# Set environment variables for library paths
+ENV LD_LIBRARY_PATH="/opt/conda/envs/cellbouncer/lib:${LD_LIBRARY_PATH}"
+
+# Compile the programs using mamba run
+RUN mamba run -n cellbouncer make
+
+# Create activation script
+USER root
+RUN echo '#!/bin/bash\n\
+source /opt/conda/etc/profile.d/conda.sh\n\
+conda activate cellbouncer\n\
+exec "$@"' > /usr/local/bin/entrypoint.sh && \
+chmod +x /usr/local/bin/entrypoint.sh
+
+USER cellbouncer
+
+# Set the entrypoint
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+# Default command
+CMD ["/bin/bash"]
+
+# Add labels for documentation
+LABEL maintainer="CellBouncer Docker Environment"
+LABEL description="Docker container with CellBouncer tools for pooled single cell sequencing experiments"
+LABEL version="1.0"
+LABEL source="https://github.com/nkschaefer/cellbouncer"
