@@ -1,0 +1,7 @@
+utils/demux_species_ref.py -k /cephfs2/hannas/MultiSpeciesComp/final/analysis/demultiplexing/unqiue_kmers/hcgmm_kmers \
+  -o 'multicomp' \
+  -f /cephfs2/hannas/MultiSpeciesComp/final/expdata/Fastq \
+  -n 'human' 'chimp' 'gorilla' 'macaque' 'mouse' \
+  -w /cephfs2/hannas/MultiSpeciesComp/final/analysis/demultiplexing/barcode_whitelist/parse_chemistry1_whitelist.txt \
+  -F /cephfs2/hannas/MultiSpeciesComp/final/analysis/demultiplexing/FASTK
+ 
