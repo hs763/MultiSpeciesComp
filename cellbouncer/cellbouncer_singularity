@@ -1,4 +1,0 @@
-singularity shell /public/singularity/containers/nextflow/cellbouncer_latest.sif 
-
-nextflow /cephfs2/hannas/MultiSpeciesComp/final/analysis/demultiplexing/cellbouncer/pipelines/demux_species.nf -params-file /cephfs2/hannas/MultiSpeciesComp/final/analysis/demultiplexing/cellbouncer/pipelines/demux_species_attempt1.yml
-nextflow /cephfs2/hannas/MultiSpeciesComp/final/analysis/demultiplexing/cellbouncer/pipelines/demux_species.nf -params-file /cephfs2/hannas/MultiSpeciesComp/final/analysis/demultiplexing/cellbouncer/pipelines/demux_species_attempt2.yml
